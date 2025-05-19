@@ -33,47 +33,99 @@
         // Reset buffer
         buffer = "";
         
-        // Create new window
-        var win = window.open("about:blank", "_blank");
-        
-        // Write content to the new window
-        if (win) {
-          win.document.write('<!DOCTYPE html>');
-          win.document.write('<html>');
-          win.document.write('<head>');
-          win.document.write('<meta charset="UTF-8">');
-          win.document.write('<title>Document</title>');
-          win.document.write('<style>');
-          win.document.write('body {margin: 0; font-family: sans-serif; background: linear-gradient(135deg, #00c6ff, #0072ff); height: 100vh; display: flex; flex-direction: column;}');
-          win.document.write('nav {background: rgba(0,0,0,0.3); padding: 10px 20px; display: flex; gap: 20px; color: white; font-size: 18px; font-weight: bold; user-select: none;}');
-          win.document.write('nav span {cursor: pointer; transition: 0.2s;}');
-          win.document.write('nav span:hover {text-decoration: underline;}');
-          win.document.write('#content {flex-grow: 1; display: flex; align-items: center; justify-content: center;}');
-          win.document.write('h1 {font-size: 4rem; color: white; animation: bounce 1s infinite; text-shadow: 0 0 20px rgba(0,0,0,0.3);}');
-          win.document.write('@keyframes bounce {0%, 100% {transform: translateY(0);} 50% {transform: translateY(-25px);}}');
-          win.document.write('iframe {width: 100%; height: 100%; border: none;}');
-          win.document.write('</style>');
-          win.document.write('</head>');
-          win.document.write('<body>');
-          win.document.write('<nav>');
-          win.document.write('<span onclick="loadHome()">Home</span>');
-          win.document.write('<span onclick="loadGames()">Games</span>');
-          win.document.write('<span onclick="loadNebula()">Nebula</span>');
-          win.document.write('<span onclick="loadYoutupe()">Youtupe</span>');
-          win.document.write('</nav>');
-          win.document.write('<div id="content">');
-          win.document.write('<h1>LE JOHNER UNBLOCKER</h1>');
-          win.document.write('</div>');
-          win.document.write('<script>');
-          win.document.write('const content = document.getElementById("content");');
-          win.document.write('function loadHome() {content.innerHTML = "<h1>LE JOHNER UNBLOCKER</h1>";}');
-          win.document.write('function loadGames() {content.innerHTML = "<iframe src=\\"https://radon.games/games\\"></iframe>";}');
-          win.document.write('function loadNebula() {content.innerHTML = "<iframe src=\\"https://nebulaservices.org/en_US/\\"></iframe>";}');
-          win.document.write('function loadYoutupe() {content.innerHTML = "<iframe src=\\"https://piped.video/trending\\"></iframe>";}');
-          win.document.write('<\/script>');
-          win.document.write('</body>');
-          win.document.write('</html>');
-          win.document.close();
+        try {
+          // Use data URI to avoid browser history entry
+          var win = window.open("javascript:window.name;", "_blank");
+          
+          if (win) {
+            // Set window title to be non-descriptive
+            win.document.title = "New Tab";
+            
+            // Clear any content and write our new content
+            win.document.open();
+            win.document.write('<!DOCTYPE html>');
+            win.document.write('<html>');
+            win.document.write('<head>');
+            win.document.write('<meta charset="UTF-8">');
+            win.document.write('<title>Google</title>'); // Disguise the title
+            win.document.write('<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIklEQVQ4jYWSS0iUURTHf/fe8RvHooE2VlT2FNqUGWmNEYUR9lhEEVJhUIsoXOQuap1Rq6KHNQt3LaPAIOxhlNTChUwLMU3NR1CklUzg6xvPd1ro2KhTHjjcA/e8/uf/hzmmqsUiEheRLhHxp/2TiDxQ1aK5+ZmFeSJSrwuYiMRVNZKuMxnFz51zu9T3GX/6iPGmRqS/F5WAUMEawuUVRI5UYjwPEWl2zlUYY8YMgIjUW2vPBkPfSV6uYbKvJ+uW3rZSojfuABAEQdw5d96oajHQqr7P8IUqpL8X43lEjp3EK4mBtfgt75l4+4po7U3cytWZPbcyjUlTidv642ipDu7foX7bh2zgs92jDhHpUlWdbNmuEw15OvqweqE7ZjboCAEFADrSjs1LkRM7NAt3+bWRebfYudFx9XguwFqbwePs9z/mT/6NLdAHMBpex2o5ldYTn2bY/8ci8TNa+3mmT3+2V/MDRCTUv7mIuYbeT1UVBKgCAar+OkpXxxdV9YuqSubcS8AJ4Lfd0a/LiQk2lSwoZh5gbYwtr5MCnnGuitX0ApUzvu5T9wbgp1+xspfQGnpbaprNHKgaGsd/ANpVtWbi5u3p6Ge+zOfNRg7E2uXCNe/v/g2Q4aLZ2Af4sJnTpIDmXA8JfLSGXpziTOwr7L8BURW6L5Q8OlX3FXCli28782c7tDeFXw54PvlBpSJ5w181Rv4XNfSFB8RTcUUAAAAASUVORK5CYII=">'); // Fake Google favicon
+            win.document.write('<style>');
+            win.document.write('body {margin: 0; font-family: sans-serif; background: linear-gradient(135deg, #00c6ff, #0072ff); height: 100vh; display: flex; flex-direction: column;}');
+            win.document.write('nav {background: rgba(0,0,0,0.3); padding: 10px 20px; display: flex; gap: 20px; color: white; font-size: 18px; font-weight: bold; user-select: none;}');
+            win.document.write('nav span {cursor: pointer; transition: 0.2s;}');
+            win.document.write('nav span:hover {text-decoration: underline;}');
+            win.document.write('#content {flex-grow: 1; display: flex; align-items: center; justify-content: center;}');
+            win.document.write('h1 {font-size: 4rem; color: white; animation: bounce 1s infinite; text-shadow: 0 0 20px rgba(0,0,0,0.3);}');
+            win.document.write('@keyframes bounce {0%, 100% {transform: translateY(0);} 50% {transform: translateY(-25px);}}');
+            win.document.write('iframe {width: 100%; height: 100%; border: none;}');
+            win.document.write('</style>');
+            win.document.write('</head>');
+            win.document.write('<body>');
+            win.document.write('<nav>');
+            win.document.write('<span onclick="loadHome()">Home</span>');
+            win.document.write('<span onclick="loadGames()">Games</span>');
+            win.document.write('<span onclick="loadNebula()">Nebula</span>');
+            win.document.write('<span onclick="loadYoutupe()">Youtupe</span>');
+            win.document.write('</nav>');
+            win.document.write('<div id="content">');
+            win.document.write('<h1>LE JOHNER UNBLOCKER</h1>');
+            win.document.write('</div>');
+            win.document.write('<script>');
+            win.document.write('const content = document.getElementById("content");');
+            win.document.write('function loadHome() {content.innerHTML = "<h1>LE JOHNER UNBLOCKER</h1>";}');
+            win.document.write('function loadGames() {content.innerHTML = "<iframe src=\\"https://radon.games/games\\"></iframe>";}');
+            win.document.write('function loadNebula() {content.innerHTML = "<iframe src=\\"https://nebulaservices.org\\"></iframe>";}');
+            win.document.write('function loadYoutupe() {content.innerHTML = "<iframe src=\\"https://docs.piped.video\\"></iframe>";}');
+            win.document.write('<\/script>');
+            win.document.write('</body>');
+            win.document.write('</html>');
+            win.document.close();
+          }
+        } catch (err) {
+          // Fallback method if the first approach is blocked
+          var win = window.open("about:blank", "_blank");
+          if (win) {
+            win.document.title = "Google";
+            win.document.open();
+            // Continue with the same document.write statements as above...
+            win.document.write('<!DOCTYPE html>');
+            win.document.write('<html>');
+            win.document.write('<head>');
+            win.document.write('<meta charset="UTF-8">');
+            win.document.write('<title>Google</title>');
+            win.document.write('<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIklEQVQ4jYWSS0iUURTHf/fe8RvHooE2VlT2FNqUGWmNEYUR9lhEEVJhUIsoXOQuap1Rq6KHNQt3LaPAIOxhlNTChUwLMU3NR1CklUzg6xvPd1ro2KhTHjjcA/e8/uf/hzmmqsUiEheRLhHxp/2TiDxQ1aK5+ZmFeSJSrwuYiMRVNZKuMxnFz51zu9T3GX/6iPGmRqS/F5WAUMEawuUVRI5UYjwPEWl2zlUYY8YMgIjUW2vPBkPfSV6uYbKvJ+uW3rZSojfuABAEQdw5d96oajHQqr7P8IUqpL8X43lEjp3EK4mBtfgt75l4+4po7U3cytWZPbcyjUlTidv642ipDu7foX7bh2zgs92jDhHpUlWdbNmuEw15OvqweqE7ZjboCAEFADrSjs1LkRM7NAt3+bWRebfYudFx9XguwFqbwePs9z/mT/6NLdAHMBpex2o5ldYTn2bY/8ci8TNa+3mmT3+2V/MDRCTUv7mIuYbeT1UVBKgCAar+OkpXxxdV9YuqSubcS8AJ4Lfd0a/LiQk2lSwoZh5gbYwtr5MCnnGuitX0ApUzvu5T9wbgp1+xspfQGnpbaprNHKgaGsd/ANpVtWbi5u3p6Ge+zOfNRg7E2uXCNe/v/g2Q4aLZ2Af4sJnTpIDmXA8JfLSGXpziTOwr7L8BURW6L5Q8OlX3FXCli28782c7tDeFXw54PvlBpSJ5w181Rv4XNfSFB8RTcUUAAAAASUVORK5CYII=">');
+            win.document.write('<style>');
+            win.document.write('body {margin: 0; font-family: sans-serif; background: linear-gradient(135deg, #00c6ff, #0072ff); height: 100vh; display: flex; flex-direction: column;}');
+            win.document.write('nav {background: rgba(0,0,0,0.3); padding: 10px 20px; display: flex; gap: 20px; color: white; font-size: 18px; font-weight: bold; user-select: none;}');
+            win.document.write('nav span {cursor: pointer; transition: 0.2s;}');
+            win.document.write('nav span:hover {text-decoration: underline;}');
+            win.document.write('#content {flex-grow: 1; display: flex; align-items: center; justify-content: center;}');
+            win.document.write('h1 {font-size: 4rem; color: white; animation: bounce 1s infinite; text-shadow: 0 0 20px rgba(0,0,0,0.3);}');
+            win.document.write('@keyframes bounce {0%, 100% {transform: translateY(0);} 50% {transform: translateY(-25px);}}');
+            win.document.write('iframe {width: 100%; height: 100%; border: none;}');
+            win.document.write('</style>');
+            win.document.write('</head>');
+            win.document.write('<body>');
+            win.document.write('<nav>');
+            win.document.write('<span onclick="loadHome()">Home</span>');
+            win.document.write('<span onclick="loadGames()">Games</span>');
+            win.document.write('<span onclick="loadNebula()">Nebula</span>');
+            win.document.write('<span onclick="loadYoutupe()">Youtupe</span>');
+            win.document.write('</nav>');
+            win.document.write('<div id="content">');
+            win.document.write('<h1>LE JOHNER UNBLOCKER</h1>');
+            win.document.write('</div>');
+            win.document.write('<script>');
+            win.document.write('const content = document.getElementById("content");');
+            win.document.write('function loadHome() {content.innerHTML = "<h1>LE JOHNER UNBLOCKER</h1>";}');
+            win.document.write('function loadGames() {content.innerHTML = "<iframe src=\\"https://radon.games/games\\"></iframe>";}');
+            win.document.write('function loadNebula() {content.innerHTML = "<iframe src=\\"https://nebulaservices.org\\"></iframe>";}');
+            win.document.write('function loadYoutupe() {content.innerHTML = "<iframe src=\\"https://docs.piped.video\\"></iframe>";}');
+            win.document.write('<\/script>');
+            win.document.write('</body>');
+            win.document.write('</html>');
+            win.document.close();
+          }
         }
       }
     });
