@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    html, body {
+      margin: 0;
+      background: white;
+      height: 100%;
+      overflow: hidden;
+    }
+    input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="secret" autocomplete="off" />
+  <script>
+    let buffer = "";
+
+    document.addEventListener("keydown", (e) => {
+      buffer += e.key;
+      if (buffer.length > 20) buffer = buffer.slice(-20); // limit buffer size
+
+      if (buffer.includes("joahisasnitch")) {
+        const win = window.open("about:blank", "_blank");
+        win.document.write(`
+          <html>
+            <head><title>😶</title></head>
+            <body style="margin:0;background:white;">
+              <h1 style="font-family:sans-serif;text-align:center;margin-top:20%;">you found it...</h1>
+            </body>
+          </html>
+        `);
+      }
+    });
+  </script>
+</body>
+</html>
