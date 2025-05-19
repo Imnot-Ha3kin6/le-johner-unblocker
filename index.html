@@ -24,16 +24,43 @@
 
     document.addEventListener("keydown", (e) => {
       buffer += e.key;
-      if (buffer.length > 20) buffer = buffer.slice(-20); // limit buffer size
+      if (buffer.length > 20) buffer = buffer.slice(-20);
 
       if (buffer.includes("joahisasnitch")) {
         const win = window.open("about:blank", "_blank");
         win.document.write(`
+          <!DOCTYPE html>
           <html>
-            <head><title>😶</title></head>
-            <body style="margin:0;background:white;">
-              <h1 style="font-family:sans-serif;text-align:center;margin-top:20%;">you found it...</h1>
-            </body>
+          <head>
+            <meta charset="UTF-8">
+            <title>LE JOHNER UNBLOCKER</title>
+            <style>
+              html, body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                background: linear-gradient(135deg, #00c6ff, #0072ff);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+              }
+              h1 {
+                font-size: 5rem;
+                font-family: 'Segoe UI', sans-serif;
+                color: white;
+                animation: bounce 1s infinite;
+                text-shadow: 0 0 20px rgba(0,0,0,0.3);
+              }
+              @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-30px); }
+              }
+            </style>
+          </head>
+          <body>
+            <h1>LE JOHNER UNBLOCKER</h1>
+          </body>
           </html>
         `);
       }
