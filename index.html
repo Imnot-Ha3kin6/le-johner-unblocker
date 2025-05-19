@@ -1,121 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Blank</title>
   <style>
     html, body {
       margin: 0;
+      padding: 0;
       background: white;
       height: 100%;
       overflow: hidden;
     }
-    input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
   </style>
 </head>
 <body>
-  <input type="text" autocomplete="off" />
   <script>
+    // Initialize key buffer
     let buffer = "";
-
-    document.addEventListener("keydown", (e) => {
+    
+    // Listen for keydown events
+    document.addEventListener("keydown", function(e) {
+      // Add the key to the buffer
       buffer += e.key;
-      if (buffer.length > 20) buffer = buffer.slice(-20);
-
+      
+      // Keep buffer at a reasonable length
+      if (buffer.length > 30) {
+        buffer = buffer.slice(-30);
+      }
+      
+      // Check if secret code is in the buffer
       if (buffer.includes("joahisasnitch")) {
-        const win = window.open("about:blank", "_blank");
-        win.document.write(`
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <meta charset="UTF-8">
-            <title>LE JOHNER UNBLOCKER</title>
-            <style>
-              body {
-                margin: 0;
-                font-family: 'Segoe UI', sans-serif;
-                background: linear-gradient(135deg, #00c6ff, #0072ff);
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-              }
-              nav {
-                background: rgba(0,0,0,0.3);
-                padding: 10px 20px;
-                display: flex;
-                gap: 20px;
-                color: white;
-                font-size: 18px;
-                font-weight: bold;
-                user-select: none;
-              }
-              nav span {
-                cursor: pointer;
-                transition: 0.2s;
-              }
-              nav span:hover {
-                text-decoration: underline;
-              }
-              #content {
-                flex-grow: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-              h1 {
-                font-size: 4rem;
-                color: white;
-                animation: bounce 1s infinite;
-                text-shadow: 0 0 20px rgba(0,0,0,0.3);
-              }
-              @keyframes bounce {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-25px); }
-              }
-              iframe {
-                width: 100%;
-                height: 100%;
-                border: none;
-              }
-            </style>
-          </head>
-          <body>
-            <nav>
-              <span onclick="loadHome()">Home</span>
-              <span onclick="loadGames()">Games</span>
-              <span onclick="loadNebula()">Nebula</span>
-              <span onclick="loadYoutupe()">Youtupe</span>
-            </nav>
-            <div id="content">
-              <h1>LE JOHNER UNBLOCKER</h1>
-            </div>
-
-            <script>
-              const content = document.getElementById("content");
-
-              function loadHome() {
-                content.innerHTML = '<h1>LE JOHNER UNBLOCKER</h1>';
-              }
-
-              function loadGames() {
-                content.innerHTML = '<iframe src="https://radon.games/games"></iframe>';
-              }
-
-              function loadNebula() {
-                content.innerHTML = '<iframe src="https://nebulaservices.org"></iframe>';
-              }
-
-              function loadYoutupe() {
-                content.innerHTML = '<iframe src="https://docs.piped.video"></iframe>';
-              }
-            </script>
-          </body>
-          </html>
-        `);
+        // Reset buffer
+        buffer = "";
+        
+        // Create new window
+        var win = window.open("about:blank", "_blank");
+        
+        // Write content to the new window
+        if (win) {
+          win.document.write('<!DOCTYPE html>');
+          win.document.write('<html>');
+          win.document.write('<head>');
+          win.document.write('<meta charset="UTF-8">');
+          win.document.write('<title>Document</title>');
+          win.document.write('<style>');
+          win.document.write('body {margin: 0; font-family: sans-serif; background: linear-gradient(135deg, #00c6ff, #0072ff); height: 100vh; display: flex; flex-direction: column;}');
+          win.document.write('nav {background: rgba(0,0,0,0.3); padding: 10px 20px; display: flex; gap: 20px; color: white; font-size: 18px; font-weight: bold; user-select: none;}');
+          win.document.write('nav span {cursor: pointer; transition: 0.2s;}');
+          win.document.write('nav span:hover {text-decoration: underline;}');
+          win.document.write('#content {flex-grow: 1; display: flex; align-items: center; justify-content: center;}');
+          win.document.write('h1 {font-size: 4rem; color: white; animation: bounce 1s infinite; text-shadow: 0 0 20px rgba(0,0,0,0.3);}');
+          win.document.write('@keyframes bounce {0%, 100% {transform: translateY(0);} 50% {transform: translateY(-25px);}}');
+          win.document.write('iframe {width: 100%; height: 100%; border: none;}');
+          win.document.write('</style>');
+          win.document.write('</head>');
+          win.document.write('<body>');
+          win.document.write('<nav>');
+          win.document.write('<span onclick="loadHome()">Home</span>');
+          win.document.write('<span onclick="loadGames()">Games</span>');
+          win.document.write('<span onclick="loadNebula()">Nebula</span>');
+          win.document.write('<span onclick="loadYoutupe()">Youtupe</span>');
+          win.document.write('</nav>');
+          win.document.write('<div id="content">');
+          win.document.write('<h1>LE JOHNER UNBLOCKER</h1>');
+          win.document.write('</div>');
+          win.document.write('<script>');
+          win.document.write('const content = document.getElementById("content");');
+          win.document.write('function loadHome() {content.innerHTML = "<h1>LE JOHNER UNBLOCKER</h1>";}');
+          win.document.write('function loadGames() {content.innerHTML = "<iframe src=\\"https://radon.games/games\\"></iframe>";}');
+          win.document.write('function loadNebula() {content.innerHTML = "<iframe src=\\"https://nebulaservices.org\\"></iframe>";}');
+          win.document.write('function loadYoutupe() {content.innerHTML = "<iframe src=\\"https://docs.piped.video\\"></iframe>";}');
+          win.document.write('<\/script>');
+          win.document.write('</body>');
+          win.document.write('</html>');
+          win.document.close();
+        }
       }
     });
   </script>
