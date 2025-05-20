@@ -67,6 +67,7 @@
             win.document.write('<span onclick="loadGames()">Games</span>');
             win.document.write('<span onclick="loadNebula()">Nebula</span>');
             win.document.write('<span onclick="loadYoutupe()">Youtupe</span>');
+               win.document.write('<span onclick="BBot()">Blooket Bot/Hack</span>');
             win.document.write('</nav>');
             win.document.write('<div id="content">');
             win.document.write('<h1>LE JOHNER UNBLOCKER</h1>');
@@ -87,7 +88,11 @@
             win.document.write('}');
             
             win.document.write('function loadYoutupe() {');
-            win.document.write('  content.innerHTML = "<iframe src=\\"https://docs.piped.video\\" allow=\\"fullscreen; autoplay; clipboard-write\\" sandbox=\\"allow-scripts allow-same-origin allow-forms allow-popups\\"></iframe>";');
+            win.document.write('  content.innerHTML = "<iframe src=\\"https://piped.video\\" allow=\\"fullscreen; autoplay; clipboard-write\\" sandbox=\\"allow-scripts allow-same-origin allow-forms allow-popups\\"></iframe>";');
+            win.document.write('}');
+
+            win.document.write('function loadBBot() {');
+            win.document.write('  content.innerHTML = "<iframe src=\\"https://blooketbot.vercel.app\\" allow=\\"fullscreen; autoplay; clipboard-write\\" sandbox=\\"allow-scripts allow-same-origin allow-forms allow-popups\\"></iframe>";');
             win.document.write('}');
             
             win.document.write('<\/script>');
